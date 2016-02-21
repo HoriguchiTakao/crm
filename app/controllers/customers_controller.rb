@@ -2,6 +2,8 @@ class CustomersController < ApplicationController
   # それぞれのactionの前に呼ばれる
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
   before_action :set_company, only: [:edit, :new]
+  #認証しているかどうかを判断する(deviseのメソッド)
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy, :edit]
 
   def index
     # kaminariを入れたので.pageが使える
