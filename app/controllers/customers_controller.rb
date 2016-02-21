@@ -12,6 +12,7 @@ class CustomersController < ApplicationController
 
   def show
     @comment = Comment.new
+    @comments = @customer.comments
   end
 
   def new

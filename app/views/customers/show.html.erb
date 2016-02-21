@@ -11,6 +11,14 @@
 
 <div class="row">
   <div class="col-md-12">
+
+  <% @comments.each do |comment| %>
+    <p><%= comment.body %></p>
+    <p>
+        <%= link_to '削除する', comment_path(comment), method: :delete %>
+    </p>
+  <% end %>
+
       <%= form_for(@comment, url: { controller: :comments, action: :create }) do |f| %>
       <div class="form-group">
         <%= f.label :body , '対応内容' %><br>

@@ -1,6 +1,7 @@
 class Customer < ActiveRecord::Base
 
   belongs_to :company
+  has_many :comments
 
   #validation :対象のカラム, バリデーションの種類
   validates :family_name, presence: true, length: { maximum: 20 }
