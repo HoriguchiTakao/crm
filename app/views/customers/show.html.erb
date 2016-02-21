@@ -9,4 +9,17 @@
   </div>
 </div>
 
+<div class="row">
+  <div class="col-md-12">
+      <%= form_for(@comment, url: { controller: :comments, action: :create }) do |f| %>
+      <div class="form-group">
+        <%= f.label :body , '対応内容' %><br>
+        <%= f.text_area :body, class: "form-control" %>
+      </div>
+      <%= f.hidden_field :customer_id, value: @customer.id %>
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>
+
 <%= link_to "編集", edit_customer_path(@customer) %>
