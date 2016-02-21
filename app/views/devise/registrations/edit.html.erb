@@ -4,8 +4,18 @@
   <%= devise_error_messages! %>
 
   <div class="field">
+    <%= f.label :family_name, '性' %><br />
+    <%= f.text_field :family_name, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :given_name, '名' %><br />
+    <%= f.text_field :given_name %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

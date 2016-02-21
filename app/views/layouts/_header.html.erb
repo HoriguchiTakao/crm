@@ -14,12 +14,16 @@
     <div class="collapse navbar-collapse" id="navbar-collapse-menu">
       <ul class="nav navbar-nav navbar-right">
       <% if  user_signed_in? %>
-      <!-- destroy_user_session_path はdeleteメソッドを呼ぶ-->
-          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-      <% else %>
-          <li><%= link_to '新規登録', new_user_registration_path %></li>
-          <li><%= link_to 'ログイン', new_user_session_path %></li>
-      <% end %>
+        <p class="navbar-text navbar-right">
+        <%= current_user.full_name %>さんでログイン中
+        </p>
+            <li><%= link_to '編集', edit_user_registration_path %></li>
+        <!-- destroy_user_session_path はdeleteメソッドを呼ぶ-->
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+            <li><%= link_to '新規登録', new_user_registration_path %></li>
+            <li><%= link_to 'ログイン', new_user_session_path %></li>
+        <% end %>
 
       </ul>
     </div><!-- /.navbar-collapse -->
